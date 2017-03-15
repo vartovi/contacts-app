@@ -6,9 +6,9 @@ function addUser() {
     var lastName = document.getElementById('lastName').value;
     var phone = document.getElementById('phone').value;
     var address = document.getElementById('streetAddress').value + ', ' + document.getElementById('city').value;
-    var users = [firstName, lastName, phone, address];
+    var contact = [firstName, lastName, phone, address];
     var id = Number(localStorage.length) + 1;
-    localStorage.setItem(''+id, users);
+    localStorage.setItem(''+id, contact);
 
     /*
     var row = table.insertRow(table.rows.length);
@@ -76,8 +76,8 @@ function editUser(index){
         var lastName = document.getElementById('lastName').value;
         var phone = document.getElementById('phone').value;
         var address = document.getElementById('streetAddress').value + ', ' + document.getElementById('city').value;
-        var users = [firstName, lastName, phone, address];
-        localStorage.setItem(''+index, users);
+        var contact = [firstName, lastName, phone, address];
+        localStorage.setItem(''+index, contact);
         location.reload();
     }
 }
