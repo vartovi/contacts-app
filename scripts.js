@@ -54,8 +54,11 @@ function showTable() {
 }
 
 function deleteUser(index){
-    table.deleteRow(index);
-    localStorage.removeItem(''+index);
+    if (confirm("Are you sure you want to delete this contact?")){
+        table.deleteRow(index);
+        localStorage.removeItem(''+index);
+    }
+
 }
 
 function editUser(index){
