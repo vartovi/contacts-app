@@ -6,29 +6,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body onload="showTable()">
-<h2 id="contactId">New contact: </h2>
-<form>
-    <label for="firstName">First name:</label><input type="text" id="firstName" value=""><br>
-    <label for="lastName">Last name:</label><input type="text" id="lastName" value=""><br>
-    <label for="phone">Phone:</label><input type="text" id="phone" value=""><br>
-    <label for="streetAddress">Street address:</label><input type="text" id="streetAddress" value=""><br>
-    <label for="city">City:</label><input type="text" id="city" value=""><br>
+<div id="container">
+    <h2 id="contactId">New contact: </h2>
+    <form>
+        <label for="firstName">First name:</label><input type="text" id="firstName" value=""><br>
+        <label for="lastName">Last name:</label><input type="text" id="lastName" value=""><br>
+        <label for="phone">Phone:</label><input type="text" id="phone" value=""><br>
+        <label for="streetAddress">Street address:</label><input type="text" id="streetAddress" value=""><br>
+        <label for="city">City:</label><input type="text" id="city" value=""><br>
+        <br>
+        <input id="addUserButton" type="button" value="Add" onclick="addUser()"><br>
+    </form>
     <br>
-    <input id="addUserButton" type="button" value="Add" onclick="addUser()"><br>
-</form>
-<br>
-<h2>Contacts: </h2>
-<table id="users">
-    <tr>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Phone</th>
-        <th>Address</th>
-        <th>Delete</th>
-        <th>Edit</th>
-    </tr>
-</table>
-
+    <h2>Contacts: </h2>
+    <table id="users">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+    </table>
+</div>
 <script src="scripts.js"></script>
 </body>
 </html>
