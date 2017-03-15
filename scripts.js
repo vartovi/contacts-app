@@ -10,8 +10,7 @@ function addUser() {
     var id = Number(localStorage.length) + 1;
     localStorage.setItem(''+id, users);
 
-    console.log(table.rows.length);
-
+    /*
     var row = table.insertRow(table.rows.length);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
@@ -26,6 +25,9 @@ function addUser() {
     cell4.innerHTML = "<a href='https://www.google.fi/maps/place/"+address+"' target='_blank'>"+address+"</a>";
     cell5.innerHTML = '<input type="button" value="Delete" onclick="deleteUser('+(table.rows.length-1)+')">';
     cell6.innerHTML = '<input type="button" value="Edit" onclick="editUser('+(table.rows.length-1)+')">';
+    */
+
+    location.reload();
 }
 
 function showTable() {
