@@ -47,9 +47,12 @@ function showTable() {
         cell2.innerHTML = arr[1];
         cell3.innerHTML = arr[2];
         cell4.innerHTML = "<a id='"+ (table.rows.length-1) +"'href='https://www.google.fi/maps/place/"+arr[3]+arr[4]+"' target='_blank'>"+arr[3]+", "+arr[4]+"</a>";
-        cell5.innerHTML = '<input type="button" value="Delete" onclick="deleteUser(' + i +')">';
-        cell6.innerHTML = '<input type="button" value="Edit" onclick="editUser('+(table.rows.length-1)+')">';
+        cell5.innerHTML = '<input class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" type="button" value="Delete" onclick="deleteUser(' + i +')">';
+        cell6.innerHTML = '<input class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button" value="Edit" onclick="editUser('+(table.rows.length-1)+')">';
         cell4.value = arr[3] + ',' + arr[4];
+
+        cell1.className = "mdl-data-table__cell--non-numeric";
+        cell2.className = "mdl-data-table__cell--non-numeric";
     }
 }
 
@@ -58,7 +61,6 @@ function deleteUser(index){
         table.deleteRow(index);
         localStorage.removeItem(''+index);
     }
-
 }
 
 function editUser(index){
@@ -67,8 +69,8 @@ function editUser(index){
     document.getElementById('phone').value = table.rows[index].cells[2].innerHTML;
     document.getElementById('streetAddress').value = document.getElementById('' + index).innerHTML.split(',')[0];
     document.getElementById('city').value = document.getElementById('' + index).innerHTML.split(',')[1].trim();
-    document.getElementById('addUserButton').value = 'Save'
-    document.getElementById('contactId').innerHTML = 'Edit contact:'
+    document.getElementById('addUserButton').value = 'Save';
+    document.getElementById('contactId').innerHTML = 'Edit contact:';
     document.getElementById('addUserButton').onclick = function () {
         var firstName = document.getElementById('firstName').value;
         var lastName = document.getElementById('lastName').value;
