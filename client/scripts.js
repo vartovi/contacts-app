@@ -10,23 +10,6 @@ function addUser() {
     var id = Number(localStorage.length) + 1;
     localStorage.setItem(''+id, contact);
 
-    /*
-    var row = table.insertRow(table.rows.length);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-
-    cell1.innerHTML = firstName;
-    cell2.innerHTML = lastName;
-    cell3.innerHTML = phone;
-    cell4.innerHTML = "<a href='https://www.google.fi/maps/place/"+address+"' target='_blank'>"+address+"</a>";
-    cell5.innerHTML = '<input type="button" value="Delete" onclick="deleteUser('+(table.rows.length-1)+')">';
-    cell6.innerHTML = '<input type="button" value="Edit" onclick="editUser('+(table.rows.length-1)+')">';
-    */
-
     location.reload();
 }
 
