@@ -29,7 +29,7 @@ function showTable() {
         cell1.innerHTML = arr[0];
         cell2.innerHTML = arr[1];
         cell3.innerHTML = arr[2];
-        cell4.innerHTML = "<a id='"+ (table.rows.length-1) +"'href='https://www.google.fi/maps/place/"+arr[3]+arr[4]+"' target='_blank'>"+arr[3]+", "+arr[4]+"</a>";
+        cell4.innerHTML = "<a id='"+ (table.rows.length-1) +"' href='https://www.google.fi/maps/place/"+arr[3]+arr[4]+"' target='_blank'>"+arr[3]+", "+arr[4]+"</a>";
         cell5.innerHTML = '<input class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" type="button" value="Delete" onclick="deleteUser(' + i +')">';
         cell6.innerHTML = '<input class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button" value="Edit" onclick="editUser('+(table.rows.length-1)+')">';
         cell4.value = arr[3] + ',' + arr[4];
@@ -47,7 +47,7 @@ function deleteUser(index){
 }
 
 function editUser(index){
-    $('.mdl-textfield__label').removeClass('mdl-textfield__label');
+    $('.mdl-textfield').addClass('is-dirty');
     document.getElementById('firstName').value = table.rows[index].cells[0].innerHTML;
     document.getElementById('lastName').value = table.rows[index].cells[1].innerHTML;
     document.getElementById('phone').value = table.rows[index].cells[2].innerHTML;
