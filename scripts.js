@@ -47,6 +47,7 @@ function deleteUser(index){
 }
 
 function editUser(index){
+    $('.mdl-textfield__label').removeClass('mdl-textfield__label');
     document.getElementById('firstName').value = table.rows[index].cells[0].innerHTML;
     document.getElementById('lastName').value = table.rows[index].cells[1].innerHTML;
     document.getElementById('phone').value = table.rows[index].cells[2].innerHTML;

@@ -1,13 +1,11 @@
-.demo-card-wide.mdl-card {
-    width: 384px;
-}
 
 .mdl-layout__content {
     padding: 24px;
-    flex: none;
+    width: 100%;
 }
+
 #contactsTable{
-    width: 708px;
+    display: table;
 }
 #users{
     margin-right: 0;
