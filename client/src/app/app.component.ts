@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ContactService } from './services/contact.service';
+import { DialogService } from './services/dialog.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+
+  openDialog(){
+
+  }
 }
