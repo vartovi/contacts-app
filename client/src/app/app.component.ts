@@ -12,7 +12,7 @@ export class AppComponent {
 
   contacts: Contact[];
 
-  constructor(public dialogService: DialogService, contactService: ContactService) {
+  constructor(public dialogService: DialogService, public contactService: ContactService) {
     this.contacts = contactService.getAllContacts();
   }
 
@@ -20,4 +20,11 @@ export class AppComponent {
    this.dialogService.contactDialog();
   }
 
+  deleteContact(contact: Contact){
+    this.contactService.removeContact(contact);
+  }
+
+  editContact(contact: Contact){
+    this.dialogService.contactDialog(contact);
+  }
 }

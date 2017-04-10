@@ -1,5 +1,5 @@
 <div>
-  <app-contact-list [contacts]="contacts"></app-contact-list>
+  <app-contact-list [contacts]="contacts" (editContact)="editContact($event)" (removeContact)="deleteContact($event)" (showContactsOnMap)="showContactOnMap($event)"></app-contact-list>
   <br>
   <div><button md-raised-button color="primary"(click)="openDialog()">Add Contact</button></div>
 </div>

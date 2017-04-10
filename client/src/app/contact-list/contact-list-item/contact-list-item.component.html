@@ -1,3 +1,6 @@
 <div>
   {{contact.firstName + ' ' + contact.lastName + ' ' + contact.phone + ' ' + contact.streetAddress + ' ' + contact.city}}
+  <button md-icon-button color="primary" (click)="editContact(contact)"><md-icon>create</md-icon></button>
+  <button md-icon-button color="primary" (click)="deleteContact(contact)"><md-icon>delete</md-icon></button>
+  <button md-icon-button color="primary" (click)="showLocationOnMap(contact)"><md-icon>room</md-icon></button>
 </div>

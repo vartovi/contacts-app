@@ -16,4 +16,11 @@ export class ContactService {
   getAllContacts(){
     return this.contacts;
   }
+
+  removeContact(contact: Contact){
+    let index = this.contacts.indexOf(contact);
+    this.contacts.splice(index, 1);
+    localStorage.setItem('ngContacts', JSON.stringify(this.contacts));
+    console.log("Deleted", index);
+  }
 }

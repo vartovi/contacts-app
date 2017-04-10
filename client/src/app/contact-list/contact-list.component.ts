@@ -13,8 +13,25 @@ export class ContactListComponent implements OnInit {
   @Output() removeContact: EventEmitter<Contact>;
   @Output() showContactsOnMap: EventEmitter<Contact>;
 
-  constructor() { }
+  constructor() {
+    this.editContact = new EventEmitter();
+    this.removeContact = new EventEmitter();
+    this.showContactsOnMap = new EventEmitter();
+  }
 
+  deleteContact(contact: Contact){
+    this.removeContact.emit(contact);
+  }
+
+  edit(contact: Contact){
+    this.editContact.emit(contact);
+    console.log("Edit", contact);
+  }
+
+  showOnMap(contact:Contact){
+    this.showContactsOnMap.emit(contact);
+    console.log("show map", contact.streetAddress + ', ' + contact.city);
+  }
   ngOnInit() {
   }
 
