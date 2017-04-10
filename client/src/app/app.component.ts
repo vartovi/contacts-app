@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ContactService } from './services/contact.service';
 import { DialogService } from './services/dialog.service';
+import { Contact } from "./contact-list/contact";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,14 @@ import { DialogService } from './services/dialog.service';
 })
 export class AppComponent {
 
-  openDialog(){
+  contacts: Contact[];
 
+  constructor(public dialogService: DialogService, contactService: ContactService) {
+    this.contacts = contactService.getAllContacts();
   }
+
+  openDialog(){
+   this.dialogService.contactDialog();
+  }
+
 }

@@ -1,3 +1,22 @@
-<p>
-  contact-dialog works!
-</p>
+<div style="width: 200px;">
+  <h2>New Contact</h2>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput type="text" placeholder="First name" [(ngModel)]="firstName">
+  </md-input-container>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput id="lastName"  type="text" placeholder="Last name" [(ngModel)]="lastName">
+  </md-input-container>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput id="phone"  type="text" placeholder="Phone" [(ngModel)]="phone">
+  </md-input-container>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput id="streetAddress"  type="text" placeholder="Street address" [(ngModel)]="streetAddress">
+  </md-input-container>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput id="city"  type="text" placeholder="City" [(ngModel)]="city">
+  </md-input-container>
+  <br/><br/>
+  <button md-raised-button color="primary" (click)="addContact(firstName, lastName, phone, streetAddress, city)">Add</button>
+  <button md-raised-button md-dialog-close color="warn" >Cancel</button>
+</div>
+

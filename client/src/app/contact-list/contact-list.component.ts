@@ -8,7 +8,7 @@ import {Contact} from "./contact";
 })
 export class ContactListComponent implements OnInit {
 
-  @Input() contacts: Contact;
+  @Input() contacts: Contact[];
   @Output() editContact: EventEmitter<Contact>;
   @Output() removeContact: EventEmitter<Contact>;
   @Output() showContactsOnMap: EventEmitter<Contact>;

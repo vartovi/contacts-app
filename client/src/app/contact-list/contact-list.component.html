@@ -1,3 +1,4 @@
-<p>
-  contact-list works!
-</p>
+<div *ngFor="let contact of contacts">
+  <app-contact-list-item [contact]="contact"></app-contact-list-item>
+</div>
+
