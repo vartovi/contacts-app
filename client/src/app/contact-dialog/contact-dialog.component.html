@@ -1,5 +1,5 @@
 <div style="width: 200px;">
-  <h2>New Contact</h2>
+  <h2>{{title}}</h2>
   <md-input-container floatPlaceholder="auto">
     <input mdInput type="text" placeholder="First name" [(ngModel)]="firstName">
   </md-input-container>
@@ -16,7 +16,8 @@
     <input mdInput id="city"  type="text" placeholder="City" [(ngModel)]="city">
   </md-input-container>
   <br/><br/>
-  <button md-raised-button color="primary" (click)="addContact(firstName, lastName, phone, streetAddress, city)">Add</button>
+  <button md-raised-button color="primary" (click)="addContact(firstName, lastName, phone, streetAddress, city)" *ngIf="!update">Add</button>
+  <button md-raised-button color="primary" (click)="updateContact(firstName, lastName, phone, streetAddress, city, contact)" *ngIf="update">Save</button>
   <button md-raised-button md-dialog-close color="warn" >Cancel</button>
 </div>
 

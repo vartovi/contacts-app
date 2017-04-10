@@ -25,6 +25,10 @@ export class AppComponent {
   }
 
   editContact(contact: Contact){
-    this.dialogService.contactDialog(contact);
+    this.dialogService.updateDialog(contact);
+  }
+
+  showContactOnMap(contact: Contact){
+    this.dialogService.mapDialog(contact.streetAddress + ', ' + contact.city);
   }
 }

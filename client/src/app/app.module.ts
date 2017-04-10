@@ -33,6 +33,6 @@ import { ContactService } from "./services/contact.service";
   ],
   providers: [DialogService, ContactService],
   bootstrap: [AppComponent],
-  entryComponents: [ContactDialogComponent]
+  entryComponents: [ContactDialogComponent, MapDialogComponent]
 })
 export class AppModule { }

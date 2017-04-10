@@ -12,6 +12,21 @@ export class DialogService {
   public contactDialog(contact?: Contact){
     let dialogRef = this.dialog.open(ContactDialogComponent);
     dialogRef.componentInstance.contact = contact;
+    dialogRef.componentInstance.title = "New Contact";
+    return dialogRef.afterClosed();
+  }
+
+  public updateDialog(contact: Contact){
+    let dialogRef = this.dialog.open(ContactDialogComponent);
+    dialogRef.componentInstance.contact = contact;
+    dialogRef.componentInstance.title = "Edit Contact";
+    dialogRef.componentInstance.firstName = contact.firstName;
+    dialogRef.componentInstance.lastName = contact.lastName;
+    dialogRef.componentInstance.phone = contact.phone;
+    dialogRef.componentInstance.streetAddress = contact.streetAddress;
+    dialogRef.componentInstance.city = contact.city;
+    dialogRef.componentInstance.update = true;
+
     return dialogRef.afterClosed();
   }
 

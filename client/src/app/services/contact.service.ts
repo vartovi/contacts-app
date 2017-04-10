@@ -23,4 +23,11 @@ export class ContactService {
     localStorage.setItem('ngContacts', JSON.stringify(this.contacts));
     console.log("Deleted", index);
   }
+
+  updateContact(contact: Contact, oldContact: Contact){
+    let index = this.contacts.indexOf(oldContact);
+    this.contacts[index] = contact;
+    localStorage.setItem('ngContacts', JSON.stringify(this.contacts));
+    console.log("Updated", index, contact);
+  }
 }
