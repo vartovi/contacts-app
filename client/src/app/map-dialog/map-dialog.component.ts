@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-map-dialog',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class MapDialogComponent implements OnInit {
 
   address;
-  constructor() { }
+  constructor(public sanitizer: DomSanitizer) {}
 
   ngOnInit() {
   }

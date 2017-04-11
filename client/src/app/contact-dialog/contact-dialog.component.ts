@@ -18,7 +18,7 @@ export class ContactDialogComponent implements OnInit {
   city: string;
   update: boolean;
 
-  constructor(public contacts:ContactService, public dialog: MdDialog) { }
+  constructor(public contacts:ContactService, public dialog: MdDialog) {}
 
   addContact(firstName, lastName, phone, streetAddress, city){
     this.contact = new Contact(firstName, lastName, phone, streetAddress, city);

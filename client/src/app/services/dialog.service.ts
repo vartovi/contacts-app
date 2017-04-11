@@ -26,7 +26,6 @@ export class DialogService {
     dialogRef.componentInstance.streetAddress = contact.streetAddress;
     dialogRef.componentInstance.city = contact.city;
     dialogRef.componentInstance.update = true;
-
     return dialogRef.afterClosed();
   }
 

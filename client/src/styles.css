@@ -29,3 +29,7 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+body{
+  background-color: lightgray;
+  font-family: Arial, serif;
+}
