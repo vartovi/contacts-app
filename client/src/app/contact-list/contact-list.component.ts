@@ -25,12 +25,10 @@ export class ContactListComponent implements OnInit {
 
   edit(contact: Contact){
     this.editContact.emit(contact);
-    console.log("Edit", contact);
   }
 
   showOnMap(contact:Contact){
     this.showContactsOnMap.emit(contact);
-    console.log("show map", contact.streetAddress + ', ' + contact.city);
   }
   ngOnInit() {
   }

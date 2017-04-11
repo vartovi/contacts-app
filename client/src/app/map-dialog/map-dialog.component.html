@@ -1,7 +1,10 @@
 <iframe
-  width="480"
-  height="480"
+  width="550px"
+  height="500px"
   frameborder="0" style="border:0"
-  [src]='sanitizer.bypassSecurityTrustResourceUrl("https://maps.google.com/maps?q=" + address +"&amp;ie=UTF8&amp;&amp;output=embed")' allowfullscreen>
+  [src]='sanitizer.bypassSecurityTrustResourceUrl("https://maps.google.com/maps?q=" + address +"&output=embed")' allowfullscreen>
 </iframe>
-<button md-raised-button md-dialog-close color="warn" >Close</button>
+<div align="end">
+  <button md-raised-button md-dialog-close color="warn" >Close</button>
+</div>
+
