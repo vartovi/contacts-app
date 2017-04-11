@@ -6,11 +6,11 @@
   </md-card-content>
   <md-card-actions>
     <div>
-      <button md-icon-button color="primary" (click)="editContact(contact)"><md-icon>create</md-icon></button>
-      <button md-icon-button color="primary" (click)="deleteContact(contact)"><md-icon>delete</md-icon></button>
+      <button md-icon-button color="primary" (click)="editContact(contact)" md-tooltip="Edit Contact" mdTooltipPosition="above"><md-icon>create</md-icon></button>
+      <button md-icon-button color="primary" (click)="deleteContact(contact)" md-tooltip="Delete Contact" mdTooltipPosition="above"><md-icon>delete</md-icon></button>
     </div>
     <div style="float: right">
-      <button md-icon-button color="primary" (click)="showLocationOnMap(contact)"><md-icon>room</md-icon></button>
+      <button md-icon-button color="primary" (click)="showLocationOnMap(contact)" md-tooltip="Show address on map" mdTooltipPosition="above"><md-icon>room</md-icon></button>
     </div>
   </md-card-actions>
 </md-card>
