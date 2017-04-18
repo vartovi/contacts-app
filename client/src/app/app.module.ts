@@ -14,6 +14,8 @@ import { ContactDialogComponent } from './contact-dialog/contact-dialog.componen
 import { MapDialogComponent } from './map-dialog/map-dialog.component';
 import { DialogService } from "./services/dialog.service";
 import { ContactService } from "./services/contact.service";
+import { ContactAddressPipe } from './pipes/contact-address.pipe';
+import { NgPipesModule } from 'ngx-pipes';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { ContactService } from "./services/contact.service";
     ContactListItemComponent,
     ContactListComponent,
     ContactDialogComponent,
-    MapDialogComponent
+    MapDialogComponent,
+    ContactAddressPipe
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { ContactService } from "./services/contact.service";
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgPipesModule
   ],
   providers: [DialogService, ContactService],
   bootstrap: [AppComponent],

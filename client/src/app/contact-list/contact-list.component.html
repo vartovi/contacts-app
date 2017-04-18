@@ -1,4 +1,4 @@
-<div *ngFor="let contact of contacts" style="min-width: 400px">
+<div *ngFor="let contact of contacts | orderBy: ['lastName','firstName']" style="min-width: 400px">
   <app-contact-list-item [contact]="contact" (remove)="deleteContact(contact)" (edit)="edit(contact)" (showOnMap)="showOnMap(contact)">
   </app-contact-list-item>
   <br>

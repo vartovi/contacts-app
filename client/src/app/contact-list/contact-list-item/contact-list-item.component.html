@@ -1,7 +1,7 @@
 <md-card>
   <md-card-content>
     <h2>{{contact.firstName + ' ' + contact.lastName}}</h2>
-    <p>{{contact.streetAddress + ', ' + contact.city}}</p>
+    <p>{{contact | contactAddress}}</p>
     <p>{{contact.phone}}</p>
   </md-card-content>
   <md-card-actions>

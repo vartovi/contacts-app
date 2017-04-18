@@ -14,6 +14,7 @@ export class AppComponent {
 
   constructor(public dialogService: DialogService, public contactService: ContactService) {
     this.contacts = contactService.getAllContacts();
+
   }
 
   openDialog(){

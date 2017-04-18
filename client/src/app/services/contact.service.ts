@@ -5,7 +5,7 @@ import { Contact } from "../contact-list/contact";
 export class ContactService {
 
   private contacts: Contact[] = JSON.parse(localStorage.getItem('ngContacts'));
-  constructor() { }
+  constructor() {}
 
   newContact(contact: Contact){
     this.contacts.push(new Contact(contact.firstName, contact.lastName, contact.phone, contact.streetAddress, contact.city));
