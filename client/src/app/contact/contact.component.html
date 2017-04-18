@@ -1,0 +1,12 @@
+<div class="container" fxLayout="column" fxLayoutAlign="start center" fxFill >
+  <app-contact-list
+    [contacts]="contacts"
+    (editContact)="editContact($event)"
+    (removeContact)="deleteContact($event)"
+    (showContactsOnMap)="showContactOnMap($event)">
+  </app-contact-list>
+</div>
+
+<div align="end">
+  <button md-fab id="addContactButton" md-fab-bottom-right color="primary"(click)="openDialog()" md-tooltip="Add contact" mdTooltipPosition="left" ><md-icon>add</md-icon></button>
+</div>

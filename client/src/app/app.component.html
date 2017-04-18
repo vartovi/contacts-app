@@ -1,20 +1,6 @@
-<header fxLayout="column" fxLayoutAlign="start stretch"><h3>Contacts app</h3></header>
-<div class="container" fxLayout="column" fxLayoutAlign="start center" fxFlexFill>
-  <app-contact-list
-                    [contacts]="contacts"
-                    (editContact)="editContact($event)"
-                    (removeContact)="deleteContact($event)"
-                    (showContactsOnMap)="showContactOnMap($event)">
+<header fxLayout="column" fxLayoutAlign="start stretch">
+  <h3>Contacts app</h3>
+</header>
 
-  </app-contact-list>
-  <br>
-</div>
-<div align="end">
-  <button md-fab id="addContactButton" md-fab-bottom-right color="primary"(click)="openDialog()" md-tooltip="Add contact" mdTooltipPosition="left" ><md-icon>add</md-icon></button>
-</div>
-
-
-
-
-
+<router-outlet></router-outlet>
 

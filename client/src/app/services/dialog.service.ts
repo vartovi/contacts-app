@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Contact } from "../contact-list/contact";
+import { Contact } from "../contact/contact";
 import { MdDialog } from "@angular/material";
-import { ContactDialogComponent } from "../contact-dialog/contact-dialog.component";
+import { ContactDialogComponent } from "../contact/contact-dialog/contact-dialog.component";
 import { MapDialogComponent } from "../map-dialog/map-dialog.component";
 
 @Injectable()
