@@ -19,11 +19,13 @@ import { ContactAddressPipe } from './pipes/contact-address.pipe';
 import { NgPipesModule } from 'ngx-pipes';
 import { LoginComponent } from './User/login/login.component';
 import { ContactComponent } from './contact/contact.component';
+import { ContactApiService } from './services/contact-api.service';
+import { LocalStorageService } from './services/localstorage.service';
 
 
 const routes: Routes = [
-  { path: '', component: ContactComponent},
-  { path: 'login', component: LoginComponent }
+  { path: 'contacts', component: ContactComponent},
+  { path: '', component: LoginComponent }
 ];
 
 @NgModule({
@@ -47,7 +49,7 @@ const routes: Routes = [
     NgPipesModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [DialogService, ContactService],
+  providers: [DialogService, ContactService, ContactApiService, LocalStorageService],
   bootstrap: [AppComponent],
   entryComponents: [ContactDialogComponent, MapDialogComponent]
 })

@@ -20,19 +20,20 @@ export class ContactDialogComponent implements OnInit {
 
   constructor(public contacts:ContactService, public dialog: MdDialog) {}
 
-  addContact(firstName, lastName, phone, streetAddress, city){
-    this.contact = new Contact(firstName, lastName, phone, streetAddress, city);
-    this.contacts.newContact(this.contact);
+  addContact(){
+    this.contacts.newContact(this.contact).subscribe();
     this.dialog.closeAll();
   }
 
-  updateContact(firstName, lastName, phone, streetAddress, city, oldContact) {
-    this.contact = new Contact(firstName, lastName, phone, streetAddress, city);
-    this.contacts.updateContact(this.contact, oldContact);
+  updateContact() {
+    this.contacts.updateContact(this.contact).subscribe();
     this.dialog.closeAll();
   }
 
   ngOnInit() {
+    if (!this.contact) {
+      this.contact = new Contact();
+    }
   }
 
 }

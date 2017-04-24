@@ -12,25 +12,30 @@ export class ContactComponent implements OnInit {
 
   contacts: Contact[];
 
-  constructor(public dialogService: DialogService, public contactService: ContactService) {
-    this.contacts = contactService.getAllContacts();
-  }
+  constructor(public dialogService: DialogService, public contactService: ContactService) {}
 
   openDialog(){
-    this.dialogService.contactDialog();
+    this.dialogService.contactDialog().subscribe(response => this.loadContacts());
   }
 
   deleteContact(contact: Contact){
-    this.contactService.removeContact(contact);
+    this.contactService.removeContact(contact).subscribe(response => this.loadContacts());
   }
 
   editContact(contact: Contact){
-    this.dialogService.updateDialog(contact);
+    this.dialogService.updateDialog(contact).subscribe(response => this.loadContacts());
   }
 
   showContactOnMap(contact: Contact){
     this.dialogService.mapDialog(contact.streetAddress + ', ' + contact.city);
   }
+
+  loadContacts(){
+    this.contactService.getAllContacts().subscribe(contacts => {
+      this.contacts = contacts;
+    });
+  }
   ngOnInit() {
+    this.loadContacts();
   }
 }
