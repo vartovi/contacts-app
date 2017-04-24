@@ -24,8 +24,9 @@ import { LocalStorageService } from './services/localstorage.service';
 
 
 const routes: Routes = [
-  { path: 'contacts', component: ContactComponent},
-  { path: '', component: LoginComponent }
+  { path: '', component: ContactComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'contacts', component: ContactComponent}
 ];
 
 @NgModule({

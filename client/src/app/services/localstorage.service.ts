@@ -9,7 +9,8 @@ export class LocalStorageService implements ContactStorage{
 
   private contacts: Contact[] = JSON.parse(localStorage.getItem('ngContacts'));
 
-  constructor() { }
+  constructor() {
+  }
 
   saveContact(contact: Contact){
     let lastId = <Contact>_.maxBy(this.contacts, 'id');
