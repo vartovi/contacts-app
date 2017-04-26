@@ -7,9 +7,12 @@ import { ContactStorage } from "./contact-storage";
 @Injectable()
 export class LocalStorageService implements ContactStorage{
 
-  private contacts: Contact[] = JSON.parse(localStorage.getItem('ngContacts'));
+  private contacts: Contact[];
 
   constructor() {
+    if (!localStorage.getItem('ngContacts')) {
+      localStorage.setItem('ngContacts', JSON.stringify([]));
+    }
   }
 
   saveContact(contact: Contact){
@@ -21,6 +24,7 @@ export class LocalStorageService implements ContactStorage{
   }
 
   findContacts(){
+    this.contacts = JSON.parse(localStorage.getItem('ngContacts'));
     return Observable.of(this.contacts);
   }
 
@@ -29,6 +33,8 @@ export class LocalStorageService implements ContactStorage{
       return c.id == contact.id ? contact : c;
     });
     localStorage.setItem('ngContacts', JSON.stringify(this.contacts));
+    console.log(this.contacts);
+    console.log(contact);
     return Observable.of(this.contacts);
   }
 

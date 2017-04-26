@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutAlign="start center" fxFill >
+<div>
   <app-contact-list
     [contacts]="contacts"
     (editContact)="editContact($event)"
@@ -7,5 +7,6 @@
   </app-contact-list>
 </div>
 <div align="right">
-  <button md-fab md-fab-bottom-right id="addContactButton"  color="primary"(click)="openDialog()" md-tooltip="Add contact" mdTooltipPosition="left" ><md-icon>add</md-icon></button>
+  <button md-fab md-fab-bottom-right id="addContactButton"  color="primary" (click)="openDialog()"
+          md-tooltip="Add contact" mdTooltipPosition="left" appVibration><md-icon>add</md-icon></button>
 </div>
