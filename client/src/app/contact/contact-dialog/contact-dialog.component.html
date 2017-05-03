@@ -1,24 +1,24 @@
 <div style="width: 200px;">
     <h2 md-dialog-title>{{title}}</h2>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput type="text" placeholder="First name" [(ngModel)]="contact.firstName">
+    <input mdInput id="firstName" type="text" placeholder="First name" [(ngModel)]="contact.firstName" appOnEnter autocomplete="off" autocorrect="off">
   </md-input-container>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput id="lastName"  type="text" placeholder="Last name" [(ngModel)]="contact.lastName">
+    <input mdInput id="lastName"  type="text" placeholder="Last name" [(ngModel)]="contact.lastName" appOnEnter autocomplete="off" autocorrect="off">
   </md-input-container>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput id="phone"  type="text" placeholder="Phone" [(ngModel)]="contact.phone">
+    <input mdInput id="phone"  type="number" placeholder="Phone" [(ngModel)]="contact.phone" appOnEnter autocomplete="off" autocorrect="off">
   </md-input-container>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput id="streetAddress"  type="text" placeholder="Street address" [(ngModel)]="contact.streetAddress">
+    <input mdInput id="streetAddress"  type="text" placeholder="Street address" [(ngModel)]="contact.streetAddress" appOnEnter autocomplete="off" autocorrect="off">
   </md-input-container>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput id="city"  type="text" placeholder="City" [(ngModel)]="contact.city">
+    <input mdInput id="city"  type="text" placeholder="City" [(ngModel)]="contact.city" appOnEnter autocomplete="off" autocorrect="off">
   </md-input-container>
   <br/><br/>
   <div align="center">
-    <button md-button md-dialog-close appVibration>Cancel</button>
-    <button md-button  (click)="addContact()" *ngIf="!update" appVibration>Add</button>
-    <button md-button  (click)="updateContact()" *ngIf="update" appVibration>Save</button>
+    <button md-button id="cancel"md-dialog-close appVibration appOnEnter>Cancel</button>
+    <button md-button id="add" (click)="addContact()" *ngIf="!update" appVibration appOnEnter>Add</button>
+    <button md-button id="save" (click)="updateContact()" *ngIf="update" appVibration appOnEnter>Save</button>
   </div>
 </div>

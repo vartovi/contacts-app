@@ -1,4 +1,4 @@
-<div  fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start stretch">
+<div  fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start stretch" style="padding-bottom: 15px">
   <div *ngFor="let contact of contacts | orderBy: ['lastName','firstName']" style="margin: 15px 15px 0 15px">
     <app-contact-list-item [contact]="contact" (remove)="deleteContact(contact)" (edit)="edit(contact)" (showOnMap)="showOnMap(contact)">
     </app-contact-list-item>

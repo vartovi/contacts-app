@@ -5,6 +5,7 @@
   font-weight: 400;
   src: url('assets/fonts/material-icons.woff2') format('woff2');
 }
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -48,7 +49,7 @@ header {
 }
 
 app-contact-list {
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 app-login {
@@ -61,4 +62,3 @@ app-login {
   right: 24px;
   z-index: 10;
 }
-
