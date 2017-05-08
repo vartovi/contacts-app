@@ -26,7 +26,7 @@ import { OnEnterDirective } from './contact/on-enter.directive';
 
 
 const routes: Routes = [
-  { path: '', component: ContactComponent},
+  { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent },
   { path: 'contacts', component: ContactComponent}
 ];

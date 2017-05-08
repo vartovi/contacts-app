@@ -9,6 +9,8 @@ export class ContactAddressPipe implements PipeTransform {
 
   transform(contact: Contact, args?: any): any {
 
+    if (!contact) return '';
+
     let addressParts = [contact.streetAddress || null, contact.city || null];
     addressParts =  _.reject(addressParts, _.isNull);
 
