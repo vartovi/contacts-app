@@ -13,6 +13,9 @@ export class LocalStorageService implements ContactStorage{
     if (!localStorage.getItem('ngContacts')) {
       localStorage.setItem('ngContacts', JSON.stringify([]));
     }
+    if(!this.contacts){
+      this.contacts = JSON.parse(localStorage.getItem('ngContacts'));
+    }
   }
 
   saveContact(contact: Contact){
@@ -33,8 +36,6 @@ export class LocalStorageService implements ContactStorage{
       return c.id == contact.id ? contact : c;
     });
     localStorage.setItem('ngContacts', JSON.stringify(this.contacts));
-    console.log(this.contacts);
-    console.log(contact);
     return Observable.of(this.contacts);
   }
 
