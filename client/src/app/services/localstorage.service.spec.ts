@@ -72,7 +72,18 @@ describe('ContactLocalStorageService', () => {
   }));
 
   it('#editContact Should update existing contact in localstorage', inject([LocalStorageService], (service: LocalStorageService) => {
-    
+    let contacts = contactArray();
+    service.saveContact(contacts[0]);
+    service.saveContact(contacts[1]);
+    service.saveContact(contacts[2]);
+    localStorage.setItem('ngContacts', JSON.stringify(contacts));
+    let contact = contacts[1];
+    contact.firstName = "Edited";
+    service.editContact(contact).subscribe((contacts: Contact[]) => {
+      let data = JSON.parse(localStorage.getItem('ngContacts'));
+      let names = _.map(data, 'firstName');
+      expect(names).toContain(contact.firstName);
+    });
   }));
 
 });
