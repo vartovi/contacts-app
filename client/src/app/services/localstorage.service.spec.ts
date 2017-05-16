@@ -79,7 +79,7 @@ describe('ContactLocalStorageService', () => {
     localStorage.setItem('ngContacts', JSON.stringify(contacts));
     let contact = contacts[1];
     contact.firstName = "Edited";
-    service.editContact(contact).subscribe((contacts: Contact[]) => {
+    service.editContact(contact).subscribe(() => {
       let data = JSON.parse(localStorage.getItem('ngContacts'));
       let names = _.map(data, 'firstName');
       expect(names).toContain(contact.firstName);

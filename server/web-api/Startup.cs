@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WebApi.Contexts;
+using WebApi.Services;
+using WebApi.Repository;
 
 namespace WebApi
 {
@@ -27,6 +27,9 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IContactRepository, ContactRepository>();
+
             // Add framework services.
             services.AddMvc();
             services.AddCors(options =>
@@ -37,6 +40,8 @@ namespace WebApi
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
+            services.AddDbContext<ContactsContext>(options =>
+             options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +51,10 @@ namespace WebApi
             loggerFactory.AddDebug();
 
             app.UseMvc();
+
+            var context = app.ApplicationServices.GetService<ContactsContext>();
+            if (context.Database.EnsureCreated())
+                context.Database.Migrate();
         }
     }
 }

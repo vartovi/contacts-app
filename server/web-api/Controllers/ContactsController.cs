@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Models;
 using WebApi.Services;
@@ -9,42 +10,51 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class ContactsController : Controller
     {
-        private readonly ContactService _contactService = new ContactService();
+        private readonly IContactService _contactService;
+
+        public ContactsController(IContactService contactService)
+        {
+            _contactService = contactService;
+        }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public List<Contact> Get()
         {
-            return Ok(_contactService.FindAllContacts());
+            //return Ok(_contactService.FindAllContacts());
+            return _contactService.FindAllContacts();
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public Contact Get(int id)
         {
-            return Ok(_contactService.FindContactById(id));
+            //return Ok(_contactService.FindContactById(id));
+            return _contactService.FindContactById(id);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Contact contact)
+        public void Create([FromBody]Contact contact)
         {
-            if (contact == null)
+            /*if (contact == null)
             {
                 return BadRequest();
             }
-            return Created($"api/contacts/{contact}", _contactService.CreateNewContact(contact));
+            return Created($"api/contacts/{contact}", _contactService.CreateNewContact(contact));*/
+            _contactService.CreateNewContact(contact);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] Contact contact)
+        public void Update(int id, [FromBody]Contact contact)
         {
-            return Accepted(_contactService.UpdateContact(id, contact));
+            //return Accepted(_contactService.UpdateContact(id, contact));
+            _contactService.UpdateContact(contact);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public void Delete(int id)
         {
+            //_contactService.DeleteContact(id);
+            //return Ok(_contactService.FindAllContacts());
             _contactService.DeleteContact(id);
-            //return NoContent();
-            return Ok(_contactService.FindAllContacts());
         }
     }
 }
