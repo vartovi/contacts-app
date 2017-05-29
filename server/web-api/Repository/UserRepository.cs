@@ -14,7 +14,7 @@ namespace WebApi.Repository
         public UserRepository(ContactsContext context)
         {
             _context = context;
-            var user = new User("admin", "admin", "Admin", "Admin", "admin.admin@saimia.fi");
+            var user = new User("admin", "password");
             if (FindByUsername(user.Username) == null)
             {
                 _context.User.Add(user);

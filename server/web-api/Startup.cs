@@ -72,6 +72,9 @@ namespace WebApi
 
             app.UseMvc();
 
+            // Cors
+            app.UseCors("CorsPolicy");
+
             var context = app.ApplicationServices.GetService<ContactsContext>();
             if (context.Database.EnsureCreated())
                 context.Database.Migrate();

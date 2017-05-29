@@ -23,6 +23,7 @@ import { ContactApiService } from './services/contact-api.service';
 import { LocalStorageService } from './services/localstorage.service';
 import { VibrationDirective } from './contact/vibration.directive';
 import { OnEnterDirective } from './contact/on-enter.directive';
+import { AuthenticationService } from './services/authentication.service'
 
 
 const routes: Routes = [
@@ -54,7 +55,7 @@ const routes: Routes = [
     NgPipesModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [DialogService, ContactService, ContactApiService, LocalStorageService],
+  providers: [DialogService, ContactService, ContactApiService, LocalStorageService, AuthenticationService],
   bootstrap: [AppComponent],
   entryComponents: [ContactDialogComponent, MapDialogComponent]
 })

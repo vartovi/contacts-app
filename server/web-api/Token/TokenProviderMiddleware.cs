@@ -87,7 +87,7 @@ namespace WebApi.Token
         private Task<ClaimsIdentity> GetIdentity(string username, string password)
         {
             // DON'T do this in production, obviously!
-            if (username == "TEST" && password == "TEST123")
+            if (username == "admin" && password == "password")
             {
                 return Task.FromResult(new ClaimsIdentity(new System.Security.Principal.GenericIdentity(username, "Token"), new Claim[] { }));
             }

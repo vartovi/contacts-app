@@ -10,9 +10,16 @@
         <md-input-container floatPlaceholder="auto">
           <input mdInput name="componentProperty" [(ngModel)]="password" type="password" required placeholder="Password">
         </md-input-container>
+        <br>
+        <div *ngIf="error">
+          <span style="color: red">{{error}}</span>
+        </div>
+        <br>
+        <md-checkbox name="componentProperty" [(ngModel)]="newUser" color="primary">Register new user
+        </md-checkbox>
       </md-card-content>
       <md-card-actions align="center">
-        <button md-raised-button color="primary" (click)="login(username, password)" >Login</button>
+        <button md-raised-button color="primary" (click)="onLogin(username, password, newUser)" >Login</button>
         <br><br>
       </md-card-actions>
     </md-card>

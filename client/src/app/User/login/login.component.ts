@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { AuthenticationService } from "../../services/authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -9,14 +10,34 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   username:string;
   password:string;
+  newUser: boolean;
+  error: string;
 
-  constructor(private router:Router) { }
+  constructor(private appRouter: Router, private authentication: AuthenticationService) {
+    this.error = '';
+  }
 
   ngOnInit() {
   }
 
-  login(username:string, password:string){
-    console.log(username + ' ' + password);
-    this.router.navigate(['/contacts']);
+  onLogin(username:string, password:string, newUser:boolean){
+
+    this.error = '';
+    if(!newUser){
+      this.authentication.login(username, password)
+        .subscribe(result => {
+          if(result === true){
+            this.appRouter.navigate(['/contacts']);
+          }
+          else{
+            console.log('LoginComponent: onLogin: error');
+            this.error = 'Invalid username or password!';
+          }
+        }, error => {
+          console.log('LoginComponent: onLogin: error');
+          this.error = 'Invalid username or password!';
+        });
+    }
+
   }
 }
