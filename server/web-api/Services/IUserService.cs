@@ -10,5 +10,6 @@ namespace WebApi.Services
     {
         User FindUserByUsername(string username);
         User FindUserByUsernameAndPassword(string username, string password);
+        User NewUser(string username, string password);
     }
 }

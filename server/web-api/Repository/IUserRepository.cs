@@ -8,7 +8,8 @@ namespace WebApi.Repository
 {
     public interface IUserRepository
     {
-       User FindByUsername(string username);
-       User FindByUsernameAndPassword(string username, string password);
+        User FindByUsername(string username);
+        User FindByUsernameAndPassword(string username, string password);
+        User NewUser(string username, string password);
     }
 }

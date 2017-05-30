@@ -35,13 +35,8 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IContactService, ContactService>();
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IContactRepository, ContactRepository>();
-
+            
             // Add framework services.
-            services.AddMvc();
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -62,6 +57,12 @@ namespace WebApi
                     .Build());
             });
 
+            services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,7 +71,6 @@ namespace WebApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
 
             // Cors
             app.UseCors("CorsPolicy");
@@ -131,6 +131,10 @@ namespace WebApi
             };
 
             app.UseMiddleware<TokenProviderMiddleware>(Options.Create(options));
+
+            app.UseMvc();
+
+
         }
 
     }

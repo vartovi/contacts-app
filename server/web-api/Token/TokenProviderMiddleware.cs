@@ -2,9 +2,14 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using WebApi.Controllers;
+using WebApi.Models;
+using WebApi.Repository;
+using WebApi.Services;
 
 namespace WebApi.Token
 {
@@ -12,6 +17,7 @@ namespace WebApi.Token
     {
         private readonly RequestDelegate _next;
         private readonly TokenProviderOptions _options;
+        
 
         public TokenProviderMiddleware(
             RequestDelegate next,
@@ -85,7 +91,7 @@ namespace WebApi.Token
         }
 
         private Task<ClaimsIdentity> GetIdentity(string username, string password)
-        {
+        {        
             // DON'T do this in production, obviously!
             if (username == "admin" && password == "password")
             {

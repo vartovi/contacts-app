@@ -15,10 +15,11 @@ export class OnEnterDirective {
       e.preventDefault();
       let inputs = document.getElementsByTagName('input');
       let index = _.indexOf(inputs, e.srcElement);
-      if (index < inputs.length-1){
+      if (index < inputs.length-1 && e.srcElement.nodeName != 'BUTTON'){
         inputs[index+1].focus();
+        console.log(e.srcElement.nodeName);
       }
-      else if (index == inputs.length-1) {
+      else if (index == inputs.length-1 || e.srcElement.nodeName == 'BUTTON') {
         let element =  document.getElementById('add') ? document.getElementById('add') : document.getElementById('save');
         element.click();
       }

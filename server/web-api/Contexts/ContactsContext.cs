@@ -1,8 +1,10 @@
-﻿using WebApi.Models;
+﻿using Microsoft.AspNetCore.Cors;
+using WebApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Contexts
 {
+    [EnableCors("CorsPolicy")]
     public class ContactsContext : DbContext
     {
         public ContactsContext(DbContextOptions<ContactsContext> options)

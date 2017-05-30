@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthenticationService } from "../../services/authentication.service";
+import { UserService } from "../../services/user.service"
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   newUser: boolean;
   error: string;
 
-  constructor(private appRouter: Router, private authentication: AuthenticationService) {
+  constructor(private appRouter: Router, private authentication: AuthenticationService, private userservice: UserService) {
     this.error = '';
   }
 
@@ -23,7 +24,13 @@ export class LoginComponent implements OnInit {
   onLogin(username:string, password:string, newUser:boolean){
 
     this.error = '';
-    if(!newUser){
+
+    if(newUser) {
+      console.log("Add user: " + username + ' ' + password);
+      this.userservice.newUser(username, password);
+      this.error = "New user added";
+    }
+    else{
       this.authentication.login(username, password)
         .subscribe(result => {
           if(result === true){
@@ -38,6 +45,5 @@ export class LoginComponent implements OnInit {
           this.error = 'Invalid username or password!';
         });
     }
-
   }
 }
