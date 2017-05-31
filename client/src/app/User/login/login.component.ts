@@ -27,8 +27,21 @@ export class LoginComponent implements OnInit {
 
     if(newUser) {
       console.log("Add user: " + username + ' ' + password);
-      this.userservice.newUser(username, password);
-      this.error = "New user added";
+      this.userservice.newUser(username, password).subscribe(response => {
+        this.authentication.login(username, password)
+          .subscribe(result => {
+            if(result === true){
+              this.appRouter.navigate(['/contacts']);
+            }
+            else{
+              console.log('LoginComponent: onLogin: error');
+              this.error = 'Invalid username or password!';
+            }
+          }, error => {
+            console.log('LoginComponent: onLogin: error');
+            this.error = 'Invalid username or password!';
+          });
+      });
     }
     else{
       this.authentication.login(username, password)
