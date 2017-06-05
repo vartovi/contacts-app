@@ -3,7 +3,6 @@ import { Http, Headers, RequestOptions } from "@angular/http";
 import { Contact } from "../contact/contact";
 import { environment } from "../../environments/environment";
 import { ContactStorage } from "./contact-storage";
-import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class ContactApiService implements ContactStorage {
