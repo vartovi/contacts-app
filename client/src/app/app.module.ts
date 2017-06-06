@@ -23,14 +23,16 @@ import { ContactApiService } from './services/contact-api.service';
 import { LocalStorageService } from './services/localstorage.service';
 import { VibrationDirective } from './contact/vibration.directive';
 import { OnEnterDirective } from './contact/on-enter.directive';
-import { AuthenticationService } from './services/authentication.service'
-import { UserService } from './services/user.service'
+import { AuthenticationService } from './services/authentication.service';
+import { UserService } from './services/user.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'contacts', component: ContactComponent}
+  { path: 'contacts', component: ContactComponent, canActivate: [AuthGuardService]},
+  { path: 'unauthorized', component: LoginComponent }
 ];
 
 @NgModule({
@@ -56,7 +58,7 @@ const routes: Routes = [
     NgPipesModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [DialogService, ContactService, ContactApiService, LocalStorageService, AuthenticationService, UserService],
+  providers: [DialogService, ContactService, ContactApiService, LocalStorageService, AuthenticationService, UserService, AuthGuardService],
   bootstrap: [AppComponent],
   entryComponents: [ContactDialogComponent, MapDialogComponent]
 })

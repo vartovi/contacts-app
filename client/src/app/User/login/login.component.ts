@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthenticationService } from "../../services/authentication.service";
 import { UserService } from "../../services/user.service"
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,16 @@ export class LoginComponent implements OnInit {
   newUser: boolean;
   error: string;
 
-  constructor(private appRouter: Router, private authentication: AuthenticationService, private userservice: UserService) {
+  constructor(private appRouter: Router, private authentication: AuthenticationService, private userservice: UserService, private auth: AuthenticationService) {
     this.error = '';
   }
 
   ngOnInit() {
+    if(!environment.endpointUrl){
+      //Local environment
+      //Authentication is not supported
+      this.appRouter.navigate(['/contacts']);
+    }
   }
 
   onLogin(username:string, password:string, newUser:boolean){

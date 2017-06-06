@@ -17,7 +17,6 @@ export class OnEnterDirective {
       let index = _.indexOf(inputs, e.srcElement);
       if (index < inputs.length-1 && e.srcElement.nodeName != 'BUTTON'){
         inputs[index+1].focus();
-        console.log(e.srcElement.nodeName);
       }
       else if (index == inputs.length-1 || e.srcElement.nodeName == 'BUTTON') {
         let element =  document.getElementById('add') ? document.getElementById('add') : document.getElementById('save');
