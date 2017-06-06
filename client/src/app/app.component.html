@@ -1,5 +1,8 @@
-<header fxLayout="row" fxLayoutAlign="start stretch" >
-  <button md-icon-button style="margin-top: 9px" appVibration><md-icon class="md-18">menu</md-icon></button>&nbsp;&nbsp;
-  <h3>Contacts app</h3>
+<header fxLayout="row" fxLayoutAlign="space-between stretch" >
+  <div fxLayout="row"><button md-icon-button style="margin-top: 9px" appVibration><md-icon class="md-18">menu</md-icon></button>&nbsp;&nbsp;
+    <h3>Contacts app</h3></div>
+  <div *ngIf="auth.loggedIn()">
+    <button md-raised-button color="accent" (click)="auth.logout()" style="margin-top: 10px; margin-right: 10px;">Logout</button>
+  </div>
 </header>
 <router-outlet></router-outlet>

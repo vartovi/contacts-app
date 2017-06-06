@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 import { environment } from "../../environments/environment";
 import { tokenNotExpired } from 'angular2-jwt';
 import { JwtHelper } from 'angular2-jwt';
+import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthenticationService {
@@ -12,7 +13,7 @@ export class AuthenticationService {
   public jwtHelper: JwtHelper = new JwtHelper();
   public token: string;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) {
     this.baseUrl = environment.endpointUrl;
     this.token = localStorage.getItem('ca-token');
   }
@@ -54,5 +55,6 @@ export class AuthenticationService {
   public logout(): void {
     this.token = null;
     localStorage.setItem('ca-token','');
+    this.router.navigate(['/']);
   }
 }
