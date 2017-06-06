@@ -25,6 +25,10 @@ export class LoginComponent implements OnInit {
       //Authentication is not supported
       this.appRouter.navigate(['/contacts']);
     }
+    else{
+      //Logout current user
+      this.auth.logout();
+    }
   }
 
   onLogin(username:string, password:string, newUser:boolean){

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from "@angular/http";
-import { Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { environment } from "../../environments/environment";
 import { tokenNotExpired } from 'angular2-jwt';
@@ -43,20 +42,17 @@ export class AuthenticationService {
   }
 
   public loggedIn() {
-    let token = this.token;
-    console.log(
-      this.jwtHelper.decodeToken(token),
-      this.jwtHelper.getTokenExpirationDate(token),
-      this.jwtHelper.isTokenExpired(token)
-    );
-    if(!this.token){
+    if(this.token == '' || this.token == null){
       return false;
     }
-    return tokenNotExpired('ca-token');
+    else{
+      return tokenNotExpired('ca-token');
+    }
+
   }
 
   public logout(): void {
     this.token = null;
-    localStorage.removeItem('ca-token');
+    localStorage.setItem('ca-token','');
   }
 }

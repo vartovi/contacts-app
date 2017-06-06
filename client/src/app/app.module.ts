@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent },
   { path: 'contacts', component: ContactComponent, canActivate: [AuthGuardService]},
-  { path: 'unauthorized', component: LoginComponent }
+  { path: 'unauthorized', redirectTo: '' }
 ];
 
 @NgModule({

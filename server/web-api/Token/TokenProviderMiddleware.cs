@@ -93,7 +93,7 @@ namespace WebApi.Token
         {
             var user = _userService.FindUserByUsernameAndPassword(username, password);
             // DON'T do this in production, obviously!
-            if (username == user.Username && password == user.Password)
+            if (user != null && username == user.Username && password == user.Password)
             {
                 return Task.FromResult(new ClaimsIdentity(new System.Security.Principal.GenericIdentity(username, "Token"), new Claim[] { }));
             }
