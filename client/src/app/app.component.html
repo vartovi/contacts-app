@@ -1,8 +1,16 @@
-<header fxLayout="row" fxLayoutAlign="space-between stretch" >
-  <div fxLayout="row"><button md-icon-button style="margin-top: 9px" appVibration><md-icon class="md-18">menu</md-icon></button>&nbsp;&nbsp;
-    <h3>Contacts app</h3></div>
-  <div *ngIf="auth.loggedIn()">
-    <button md-raised-button color="accent" (click)="auth.logout()" style="margin-top: 10px; margin-right: 10px;">Logout</button>
-  </div>
-</header>
-<router-outlet></router-outlet>
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="over" align="start">
+    <md-icon id="sidenav-logo">account_circle</md-icon>
+    <h3>Viljo Värtö</h3>
+    <p>viljo.varto@gmail.com</p>
+  </md-sidenav>
+  <header fxLayout="row" fxLayoutAlign="space-between stretch" >
+    <div fxLayout="row"><button md-icon-button style="margin-top: 9px" appVibration (click)="sidenav.toggle()"><md-icon class="md-18">menu</md-icon></button>&nbsp;&nbsp;
+      <h3>Contacts app</h3></div>
+    <div *ngIf="auth.loggedIn()">
+      <button md-raised-button color="accent" (click)="auth.logout()" style="margin-top: 10px; margin-right: 10px;">Logout</button>
+    </div>
+  </header>
+  <router-outlet></router-outlet>
+
+</md-sidenav-container>

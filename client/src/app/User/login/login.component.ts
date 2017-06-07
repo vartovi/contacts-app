@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthenticationService } from "../../services/authentication.service";
 import { UserService } from "../../services/user.service"
@@ -10,8 +10,8 @@ import { environment } from "../../../environments/environment";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username:string;
-  password:string;
+  username: string;
+  password: string;
   newUser: boolean;
   error: string;
 
@@ -45,11 +45,11 @@ export class LoginComponent implements OnInit {
             }
             else{
               console.log('LoginComponent: onLogin: error');
-              this.error = 'Invalid username or password!';
+              this.error = 'Username not available';
             }
           }, error => {
             console.log('LoginComponent: onLogin: error');
-            this.error = 'Invalid username or password!';
+            this.error = 'Username not available';
           });
       });
     }
