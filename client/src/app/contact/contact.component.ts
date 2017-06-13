@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
   constructor(public dialogService: DialogService, public contactService: ContactService, private auth: AuthenticationService, private router: Router) {
     setInterval(function() {
       if(!auth.loggedIn() && environment.endpointUrl){
-        router.navigate(['/login'])
+        router.navigate(['/login']);
       }
     }, 60 * 1000);
   }

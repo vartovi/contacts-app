@@ -3,14 +3,12 @@ import { Http, Headers, RequestOptions } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { environment } from "../../environments/environment";
 import { tokenNotExpired } from 'angular2-jwt';
-import { JwtHelper } from 'angular2-jwt';
 import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthenticationService {
 
   private baseUrl: string;
-  public jwtHelper: JwtHelper = new JwtHelper();
   public token: string;
 
   constructor(private http: Http, private router: Router) {
@@ -49,7 +47,6 @@ export class AuthenticationService {
     else{
       return tokenNotExpired('ca-token');
     }
-
   }
 
   public logout(): void {

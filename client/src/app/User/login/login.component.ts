@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthenticationService } from "../../services/authentication.service";
 import { UserService } from "../../services/user.service"
@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
     this.error = '';
 
     if(newUser) {
-      console.log("Add user: " + username + ' ' + password);
       this.userservice.newUser(username, password).subscribe(response => {
         this.authentication.login(username, password)
           .subscribe(result => {
